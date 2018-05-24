@@ -14,3 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+//测试模块
+Route::group([
+    'prefix' => 'test/common',
+    'namespace' => 'Test\Common',
+//    'middleware' => ['checkLogin'],
+], function ($app) {
+    $app->get('basic/test_once', 'CommonBasicController@testOnce');
+});
+
